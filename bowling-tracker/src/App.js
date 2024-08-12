@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import ScoreInput from "./components/ScoreInput";
 
 function App() {
+const [scores, setScores] = useState([]);
+
+const addScore = (score) => {
+  setScores([...scores, score]);
+};
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Bowling Score Tracker</h1>
+      <ScoreInput onAddScore={addScore} />
+      <h2>Scores</h2>
+      <ul>
+        {scores.map((score, index) => (
+          <li key={index}>{score}</li>
+        ))}
+      </ul>
     </div>
   );
 }
 
 export default App;
+
