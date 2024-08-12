@@ -1,6 +1,8 @@
 import { useState } from "react";
 import ScoreInput from "./components/ScoreInput";
 
+import './App.css'
+
 function App() {
 const [scores, setScores] = useState([]);
 
